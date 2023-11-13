@@ -1,7 +1,6 @@
 use serde_derive::Serialize;
 use sha2::{Digest, Sha256};
 use std::fmt::Write;
-
 use chrono::prelude::*;
 
 #[derive(Debug, Clone, Serialize)]
