@@ -1,7 +1,7 @@
+use chrono::prelude::*;
 use serde_derive::Serialize;
 use sha2::{Digest, Sha256};
 use std::fmt::Write;
-use chrono::prelude::*;
 
 #[derive(Debug, Clone, Serialize)]
 pub struct Transaction {
@@ -159,7 +159,7 @@ impl Chain {
         let res = hasher.finalize();
         let vec_res = res.to_vec();
 
-        Chain::hex_to_string(vec_res.as_slice())
+        return Chain::hex_to_string(vec_res.as_slice());
     }
 
     pub fn hex_to_string(vec_res: &[u8]) -> String {
@@ -167,6 +167,6 @@ impl Chain {
         for b in vec_res {
             write!(&mut s, "{:x}", b).expect("unable to write");
         }
-        s
+        return s;
     }
 }
